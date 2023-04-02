@@ -8,12 +8,13 @@ import { apiURL } from './constants';
 export const fetchOffers = async (): Promise<Job[]> => {
   try {
     const response = await fetch(`${apiURL}fetchVacancies`);
+    console.log(response);
     if (!response.ok) {
       throw new Error(`API request failed with status ${response.status}`);
     }
     const speakers = await response.json();
 
-    return speakers.data;
+    return speakers;
   } catch (error: any) {
     if (error instanceof SyntaxError) {
       throw new Error('Invalid JSON response from API');
