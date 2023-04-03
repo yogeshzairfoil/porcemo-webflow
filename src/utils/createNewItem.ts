@@ -2,6 +2,7 @@
 import type { Job } from 'src/types/global';
 
 import { SELECTORS } from './constants';
+import { formatDate } from './formatDate';
 
 export const createNewItem = (job: Job, templateElement: HTMLDivElement) => {
   // clone the template element
@@ -13,32 +14,33 @@ export const createNewItem = (job: Job, templateElement: HTMLDivElement) => {
   const location = newItem.querySelector(SELECTORS.location) as HTMLElement;
   const metier = newItem.querySelector(SELECTORS.meteir) as HTMLElement;
   const date = newItem.querySelector(SELECTORS.date) as HTMLElement;
-  console.log(title, contract, location, metier, date);
+  console.log(title, contract, location, metier, date, 'LOGS');
   if (title) title.innerText = job.title!;
   if (contract && job.contractTypeNames) {
     for (const contractTypeName of job.contractTypeNames) {
-      contract.innerText += contractTypeName;
+      contract.innerText += ` ${contractTypeName}`;
     }
   }
   if (location && job.mobilities) {
     for (const eachMobilities of job.mobilities) {
-      location.innerText += eachMobilities;
+      location.innerText += ` ${eachMobilities}`;
     }
   }
   if (metier) {
     if (job.businessDomains) {
       for (const eachBusinessDomain of job.businessDomains!) {
-        metier.innerText += eachBusinessDomain;
+        metier.innerText += ` ${eachBusinessDomain}`;
       }
     }
     if (job.businessTypes) {
       for (const eachBusinessType of job.businessTypes!) {
-        metier.innerText += eachBusinessType;
+        metier.innerText += ` ${eachBusinessType}`;
       }
     }
   }
   if (date) {
-    date.innerText = job.lastPublicationDate!;
+    const formatedDate = formatDate(job.lastPublicationDate!);
+    date.innerText = formatedDate;
   }
   return newItem;
 };

@@ -2,6 +2,7 @@ import type { CMSList } from 'src/types/CMSList';
 
 import { createNewItem } from '$utils/createNewItem';
 import { fetchOffers } from '$utils/fetchOffers';
+import { toggleLoaderVisibility } from '$utils/toggleVisibility';
 
 window.Webflow ||= [];
 window.fsAttributes = window.fsAttributes || [];
@@ -29,7 +30,8 @@ window.Webflow.push(async () => {
       const newItems = allJobs.map((eachJob) => createNewItem(eachJob, itemTemplateElement));
       // Feed new items into the CMSList
       await listInstance.addItems(newItems);
-      // show speaker list and hide loader
+      //  hide loader
+      toggleLoaderVisibility(false);
     },
   ]);
 });

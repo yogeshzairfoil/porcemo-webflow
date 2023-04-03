@@ -8,4 +8,5 @@ export const SELECTORS = {
   location: `[${prefix}="location"]`,
   meteir: `[${prefix}="metier"]`,
   date: `[${prefix}="date"]`,
+  loader: `[${prefix}="loader"]`,
 };
