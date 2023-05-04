@@ -1,6 +1,6 @@
 {
   "name": "@porcemo-org/webflow-package-porcemo",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Webflow package for porcemo site",
   "homepage": "https://github.com/finsweet/developer-starter#readme",
   "license": "ISC",
