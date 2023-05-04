@@ -3,18 +3,18 @@ import type { Job } from 'src/types/global';
 import { apiURL } from './constants';
 
 /**
- * Fetches jobs data from the netlify cloud function endpoint
+ * Fetches individual job data from the netlify cloud function endpoint
  */
-export const fetchOffers = async (): Promise<Job[]> => {
+export const fetchAboutOffers = async (id: string): Promise<Job> => {
   try {
-    const response = await fetch(`${apiURL}fetchVacancies`);
+    const response = await fetch(`${apiURL}fetchVacancies?id=${id}`);
 
     if (!response.ok) {
       throw new Error(`API request failed with status ${response.status}`);
     }
-    const speakers = await response.json();
+    const jobData = await response.json();
 
-    return speakers;
+    return jobData;
   } catch (error: any) {
     if (error instanceof SyntaxError) {
       throw new Error('Invalid JSON response from API');
