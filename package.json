@@ -1,7 +1,7 @@
 {
-  "name": "@porcemo/webflow-package",
+  "name": "@porcemo/webflow-package-porcemo",
   "version": "0.0.0",
-  "description": "Developer starter template for Finsweet projects.",
+  "description": "Webflow package for porcemo site",
   "homepage": "https://github.com/finsweet/developer-starter#readme",
   "license": "ISC",
   "keywords": [],
@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/finsweet/developer-starter.git"
+    "url": "git+https://github.com/yogeshzairfoil/porcemo-webflow.git"
   },
   "bugs": {
-    "url": "https://github.com/finsweet/developer-starter/issues"
+    "url": "https://github.com/yogeshzairfoil/porcemo-webflow/issues"
   },
   "type": "module",
   "main": "src/index.ts",
