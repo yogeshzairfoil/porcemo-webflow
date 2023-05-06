@@ -20,7 +20,7 @@ export const createNewItem = (job: Job, templateElement: HTMLDivElement) => {
   const experienceWrapper = newItem.querySelector(SELECTORS.experienceWrapper) as HTMLElement;
 
   const jobButton = newItem.querySelector(SELECTORS.jobButton) as HTMLAnchorElement;
-  jobButton.href += `?id=${job.id}`;
+  jobButton.href += `?offer=${job.urlFriendly}&id=${job.id}`;
   if (title) title.innerText = job.title!;
   if (contract && job.contractTypeNames) {
     contractWrapper.innerHTML = '';

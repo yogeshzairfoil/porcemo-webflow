@@ -6,7 +6,6 @@ import { createNewFilter } from '$utils/createNewFilter';
 import { createNewItem } from '$utils/createNewItem';
 import { fetchOffers } from '$utils/fetchOffers';
 import { getUniquePropertyValues } from '$utils/getUniquePropertyValues';
-import { toggleLoaderVisibility } from '$utils/toggleVisibility';
 
 window.Webflow ||= [];
 window.fsAttributes = window.fsAttributes || [];
