@@ -1,6 +1,5 @@
 export const apiURL = 'https://porcemo-site.netlify.app/.netlify/functions/';
-export const jobPageUrl =
-  'https://procemo-dev-87a66cfc76c7abbbfc66a9247e7.webflow.io/offres-demplois';
+export const jobPageUrl = 'https://procemo-dev-87a66cfc76c7abbbfc66a9247e7.webflow.io/offre';
 const prefix = 'data';
 const offerPrefix = 'data-offer';
 export const SELECTORS = {
@@ -15,6 +14,7 @@ export const SELECTORS = {
   experienceWrapper: `[${prefix}="exp-wrapper"]`,
   jobButton: `[${prefix}="button"]`,
   loader: `[${prefix}="loader"]`,
+  formEl: `[${prefix}="formel"]`,
 
   //filters
 

@@ -6,6 +6,7 @@ import { createNewFilter } from '$utils/createNewFilter';
 import { createNewItem } from '$utils/createNewItem';
 import { fetchOffers } from '$utils/fetchOffers';
 import { getUniquePropertyValues } from '$utils/getUniquePropertyValues';
+import { hideElement } from '$utils/hideElement';
 
 window.Webflow ||= [];
 window.fsAttributes = window.fsAttributes || [];
@@ -16,6 +17,7 @@ window.Webflow.push(async () => {
     'cmsload',
     async (listInstances: CMSList[]) => {
       // Fetching the CMS List instances
+      const loader = document.querySelector(SELECTORS.loader) as HTMLElement;
       const jobListInstance = listInstances[3];
 
       const locationFilterListInstance = listInstances[0];
@@ -89,7 +91,9 @@ window.Webflow.push(async () => {
           filtersInstance.storeFiltersData();
         },
       ]);
+
       //  hide loader
+      hideElement(loader, true);
       //toggleLoaderVisibility(false);
     },
   ]);

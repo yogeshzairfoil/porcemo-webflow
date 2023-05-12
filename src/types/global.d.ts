@@ -43,6 +43,10 @@ type FsAttributesInit = {
 
 type FsAttributes = FsAttributesBase & FsAttributesInit;
 
+type FormBody = {
+  [key: string]: string | Blob;
+};
+
 export interface Job {
   id?: number;
   title?: string;
