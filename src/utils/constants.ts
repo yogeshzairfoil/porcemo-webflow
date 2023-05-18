@@ -1,4 +1,4 @@
-export const apiURL = 'https://porcemo-site.netlify.app/.netlify/functions/';
+export const apiURL = 'https://creative-pastelito-74fbff.netlify.app/.netlify/functions/';
 export const jobPageUrl = 'https://procemo-dev-87a66cfc76c7abbbfc66a9247e7.webflow.io/offre';
 const prefix = 'data';
 const offerPrefix = 'data-offer';

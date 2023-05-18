@@ -1,11 +1,11 @@
-import type { FormBody } from 'src/types/global';
+import axios from 'axios';
 
-export const formListener = (event: Event, emailForm: HTMLFormElement) => {
+export const formListener = async (event: Event, emailForm: HTMLFormElement, vacancyId: string) => {
   event.preventDefault(); // prevent the default form submission behavior
 
   const formData = new FormData(emailForm);
 
-  const body: FormBody = {};
+  const body = new FormData();
 
   formData.forEach(function (value, key) {
     if (key === 'cvUpload') {
@@ -13,18 +13,26 @@ export const formListener = (event: Event, emailForm: HTMLFormElement) => {
       const file = fileInput?.files?.[0];
 
       if (file) {
-        body[key] = file;
+        body.append(key, file);
       }
     } else {
-      body[key] = value.toString();
+      body.append(key, value.toString());
     }
   });
+  body.append('vacancyId', vacancyId);
 
-  fetch('/.netlify/functions/my-function', {
-    method: 'POST',
-    body: JSON.stringify(body),
-  })
-    .then<Response>((response) => response.json())
-    .then((data) => console.log(data))
-    .catch((error) => console.error(error));
+  // Send the FormData object to the Netlify function
+  try {
+    const { data } = await axios.post(
+      'https://creative-pastelito-74fbff.netlify.app/.netlify/functions/jobForm',
+      body,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }
+    );
+  } catch (error) {
+    console.error('Upload failed:', error);
+  }
 };
